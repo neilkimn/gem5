@@ -87,6 +87,11 @@ class RandomRP(BaseReplacementPolicy):
     cxx_class = 'gem5::replacement_policy::Random'
     cxx_header = "mem/cache/replacement_policies/random_rp.hh"
 
+class TrueRandomRP(BaseReplacementPolicy):
+    type = 'TrueRandomRP'
+    cxx_class = 'gem5::replacement_policy::TrueRandom'
+    cxx_header = "mem/cache/replacement_policies/true_random_rp.hh"
+
 class BRRIPRP(BaseReplacementPolicy):
     type = 'BRRIPRP'
     cxx_class = 'gem5::replacement_policy::BRRIP'

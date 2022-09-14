@@ -31,3 +31,15 @@ m5out
 configs/example/memcheck.cfg
 configs/dram/lowp_sweep.cfg
 .pyenv
+tests/test-progs/gemm/src/*
+tests/test-progs/gemm/bin/x86/gemm
+tests/test-progs/gemm/src/gemm
+tests/test-progs/gemm/src/gemm.cpp
+tests/test-progs/gemm/src/Makefile.x86
+tests/test-progs/primes/src/primes_c
+tests/test-progs/primes/src/primes_cpp
+tests/test-progs/gemm/bin/x86/gemm
+tests/test-progs/gemm/src/gemm
+tests/test-progs/gemm/src/gemm.cpp
+tests/test-progs/gemm/src/Makefile.x86
+tests/test-progs/gemm/bin/x86/gemm
