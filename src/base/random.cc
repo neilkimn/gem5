@@ -44,7 +44,6 @@
 
 #include "base/logging.hh"
 #include "sim/serialize.hh"
-#include "sys/time.h"
 
 namespace gem5
 {

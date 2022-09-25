@@ -107,7 +107,7 @@ if args.replacement_policy == "TrueRandomRP":
     system.cpu.icache.replacement_policy = TrueRandomRP()
     system.cpu.dcache.replacement_policy = TrueRandomRP()
 if args.replacement_policy == "RandomRP":
-    system.cpu.replacement_policy = RandomRP()
+    system.l2cache.replacement_policy = RandomRP()
     system.cpu.icache.replacement_policy = RandomRP()
     system.cpu.dcache.replacement_policy = RandomRP()
 else:

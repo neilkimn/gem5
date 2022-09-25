@@ -502,13 +502,6 @@
                     "is_source": "True"
                 }
             },
-            "replacement_policy": {
-                "type": "RandomRP",
-                "cxx_class": "gem5::replacement_policy::Random",
-                "name": "replacement_policy",
-                "path": "system.cpu.replacement_policy",
-                "eventq_index": 0
-            },
             "dcache_port": {
                 "role": "GEM5 REQUESTOR",
                 "peer": "system.cpu.dcache.cpu_side",
