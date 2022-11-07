@@ -36,6 +36,8 @@
 #define __MEM_CACHE_REPLACEMENT_POLICIES_TRUE_RANDOM_RP_HH__
 
 #include "mem/cache/replacement_policies/base.hh"
+#include "base/random.hh"
+#include "sys/time.h"
 
 namespace gem5
 {

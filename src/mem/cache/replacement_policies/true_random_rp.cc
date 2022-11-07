@@ -31,7 +31,7 @@
 #include <cassert>
 #include <memory>
 
-#include "base/random.hh"
+
 #include "params/TrueRandomRP.hh"
 
 namespace gem5
@@ -44,6 +44,7 @@ namespace replacement_policy
 TrueRandom::TrueRandom(const Params &p)
   : Base(p)
 {
+    random_mt = Random(time(NULL));
 }
 
 void
@@ -72,8 +73,6 @@ TrueRandom::getVictim(const ReplacementCandidates& candidates) const
 {
     // There must be at least one replacement candidate
     assert(candidates.size() > 0);
-
-    Random random_mt = gem5::Random(time(NULL));
 
     // Choose one candidate at random
     ReplaceableEntry* victim = candidates[random_mt.random<unsigned>(0,
