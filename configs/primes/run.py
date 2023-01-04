@@ -4,10 +4,10 @@ import os
 
 def collect_data(name, n):
     filename = f"run_{n}_dim"
-    os.makedirs("new_results/" + name, exist_ok=True)
+    os.makedirs("results/" + name, exist_ok=True)
 
     for f in os.listdir("m5out"):
-        os.system(f"cp m5out/{f} new_results/{name}/{filename}_{f}") 
+        os.system(f"cp m5out/{f} results/{name}/{filename}_{f}") 
 
 def run():
     parser = argparse.ArgumentParser()
