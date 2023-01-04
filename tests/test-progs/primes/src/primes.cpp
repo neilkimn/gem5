@@ -20,10 +20,12 @@ void SieveOfEratosthenes(int n)
         }
     }
  
+    int cnt = 0;
     // Print all prime numbers
-    //for (int p=2; p<=n; p++)
-    //   if (prime[p])
-    //      cout << p << " ";
+    for (int p=2; p<=n; p++)
+       if (prime[p])
+          cnt++;
+    cout << "number of primes: " << cnt << endl;
 }
  
 // Driver Program to test above function

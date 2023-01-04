@@ -43,3 +43,5 @@ tests/test-progs/gemm/src/gemm
 tests/test-progs/gemm/src/gemm.cpp
 tests/test-progs/gemm/src/Makefile.x86
 tests/test-progs/gemm/bin/x86/gemm
+
+configs/primes/*

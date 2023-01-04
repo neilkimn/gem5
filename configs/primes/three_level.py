@@ -63,10 +63,12 @@ default_binary = os.path.join(thispath, '../../../',
 
 # Binary to execute
 SimpleOpts.add_option("binary", nargs='?', default=default_binary)
+SimpleOpts.add_option("replacement_policy", nargs='?')
 SimpleOpts.add_option("size", nargs='?')
 
 # Finalize the arguments and grab the args so we can pass it on to our objects
 args = SimpleOpts.parse_args()
+print("Replacement policy: ", args.replacement_policy)
 
 # create the system we are going to simulate
 system = System()
@@ -103,9 +105,21 @@ system.cpu.dcache.connectBus(system.l2bus)
 system.l2cache = L2Cache(args)
 system.l2cache.connectCPUSideBus(system.l2bus)
 
-
 system.l3cache = L3Cache(args)
 system.l3cache.connectCPUSideBus(system.l3bus)
+if args.replacement_policy == "TrueRandomRP":
+    system.l3cache.replacement_policy = TrueRandomRP()
+    system.l2cache.replacement_policy = TrueRandomRP()
+    system.cpu.icache.replacement_policy = TrueRandomRP()
+    system.cpu.dcache.replacement_policy = TrueRandomRP()
+if args.replacement_policy == "RandomRP":
+    system.l3cache.replacement_policy = RandomRP()
+    system.l2cache.replacement_policy = RandomRP()
+    system.cpu.icache.replacement_policy = RandomRP()
+    system.cpu.dcache.replacement_policy = RandomRP()
+else:
+    pass # LRURP default replacement policy
+
 
 system.membus = SystemXBar()
 system.l2cache.connectMemSideBus(system.l3bus)
@@ -128,7 +142,6 @@ system.system_port = system.membus.cpu_side_ports
 # Create a DDR3 memory controller
 system.mem_ctrl = MemCtrl()
 system.mem_ctrl.dram = DDR3_1600_8x8()
-#system.mem_ctrl.dram = DDR3_2133_8x8()
 system.mem_ctrl.dram.range = system.mem_ranges[0]
 system.mem_ctrl.port = system.membus.mem_side_ports
 
